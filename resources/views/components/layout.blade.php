@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ $title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/img/logo.png" type="image/png">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
