@@ -1,66 +1,116 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ⚽ Ballgrounds - Sistem Informasi Geografis Lapangan Bola
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel](https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Leaflet](https://img.shields.io/badge/Leaflet-GIS-199900?style=for-the-badge&logo=leaflet&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
-## About Laravel
+**Ballgrounds** adalah aplikasi Sistem Informasi Geografis (SIG) berbasis web untuk memetakan lokasi dan informasi lapangan bola di Kota Payakumbuh. Aplikasi ini dibangun untuk memudahkan masyarakat mencari lokasi lapangan olahraga dan membantu pengelola lapangan dalam mempromosikan fasilitas mereka.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Proyek ini dikembangkan sebagai bagian dari Tugas Akhir/Skripsi Program Studi Informatika.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🌟 Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Peta Interaktif:** Visualisasi lokasi lapangan menggunakan **Leaflet JS**.
+- **Polygon Area:** Menampilkan batas fisik dan luas area lapangan secara presisi di atas peta.
+- **Manajemen Data (CRUD):** Admin dapat menambah, mengedit, dan menghapus data lapangan beserta koordinatnya.
+- **Manajemen Pengguna:** Sistem autentikasi untuk Admin dan User.
+- **Dashboard Statistik:** Ringkasan jumlah lapangan dan pengguna aktif.
 
-## Learning Laravel
+## 🛠️ Teknologi yang Digunakan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Backend:** Laravel 10 (PHP 8.1+)
+- **Database:** MySQL 8.0
+- **Frontend:** Blade Templates, Tailwind CSS / Bootstrap
+- **Mapping Library:** Leaflet JS & GeoJSON
+- **Server Environment:** Laragon / XAMPP
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 📸 Tangkapan Layar (Screenshots)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+|                  Dashboard Admin                   |              Peta Sebaran              |
+| :------------------------------------------------: | :------------------------------------: |
+| ![Dashboard](public/img/screenshots/dashboard.png) | ![Map](public/img/screenshots/map.png) |
 
-## Laravel Sponsors
+## 🚀 Instalasi & Penggunaan
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer lokal (Localhost):
 
-### Premium Partners
+### Prasyarat
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Pastikan kamu sudah menginstal:
 
-## Contributing
+- PHP >= 8.1
+- Composer
+- MySQL
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Langkah Instalasi
 
-## Code of Conduct
+1.  **Clone Repositori**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    ```bash
+    git clone [https://github.com/USERNAME-KAMU/ballgrounds.git](https://github.com/USERNAME-KAMU/ballgrounds.git)
+    cd ballgrounds
+    ```
 
-## Security Vulnerabilities
+2.  **Install Dependensi**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    ```bash
+    composer install
+    npm install
+    ```
 
-## License
+3.  **Konfigurasi Environment**
+    Salin file `.env.example` menjadi `.env`:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ```bash
+    cp .env.example .env
+    ```
+
+    Buka file `.env` dan sesuaikan konfigurasi database:
+
+    ```env
+    DB_DATABASE=ballgrounds
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
+
+4.  **Generate App Key**
+
+    ```bash
+    php artisan key:generate
+    ```
+
+5.  **Migrasi Database & Seeding**
+    Pastikan database `ballgrounds` sudah dibuat di MySQL, lalu jalankan:
+
+    ```bash
+    php artisan migrate --seed
+    ```
+
+    _(Jika kamu memiliki file SQL backup, kamu bisa mengimpornya secara manual ke database)_.
+
+6.  **Jalankan Server**
+
+    ```bash
+    php artisan serve
+    ```
+
+7.  **Akses Aplikasi**
+    Buka browser dan kunjungi: `http://127.0.0.1:8000`
+
+## 🤝 Kontribusi
+
+Kontribusi sangat terbuka! Jika Anda ingin memperbaiki bug atau menambahkan fitur baru (seperti fitur Booking), silakan:
+
+1.  Fork repositori ini.
+2.  Buat branch fitur baru (`git checkout -b fitur-baru`).
+3.  Commit perubahan Anda (`git commit -m 'Menambahkan fitur X'`).
+4.  Push ke branch (`git push origin fitur-baru`).
+5.  Buat Pull Request.
+
+## 📝 Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+
+---
+
+**Dibuat oleh:** Raihan Hisbullah (221013006)
