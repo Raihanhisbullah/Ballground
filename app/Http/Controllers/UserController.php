@@ -45,15 +45,11 @@ class UserController extends Controller
             $userData['password'] = Hash::make($request->password);
 
             if ($request->hasFile('profile_photo')) {
-                // Buat direktori jika belum ada
-                if (!Storage::exists('public/img/user')) {
-                    Storage::makeDirectory('public/img/user');
-                }
-
                 $file = $request->file('profile_photo');
                 $fileName = time() . '_' . $file->getClientOriginalName();
-                $path = $file->storeAs('img/user', $fileName, 'public');
-                $userData['profile_photo_path'] = $path;
+                // Simpan ke public/img/user
+                $file->move(public_path('img/user'), $fileName);
+                $userData['profile_photo_path'] = 'img/user/' . $fileName;
             }
 
             User::create($userData);
@@ -121,14 +117,14 @@ class UserController extends Controller
             // Handle update foto profil
             if ($request->hasFile('profile_photo')) {
                 // Hapus foto lama jika ada
-                if ($user->profile_photo_path) {
-                    Storage::disk('public')->delete($user->profile_photo_path);
+                if ($user->profile_photo_path && file_exists(public_path($user->profile_photo_path))) {
+                    unlink(public_path($user->profile_photo_path));
                 }
 
                 $file = $request->file('profile_photo');
                 $fileName = time() . '_' . $file->getClientOriginalName();
-                $path = $file->storeAs('img/user', $fileName, 'public');
-                $userData['profile_photo_path'] = $path;
+                $file->move(public_path('img/user'), $fileName);
+                $userData['profile_photo_path'] = 'img/user/' . $fileName;
             }
 
             $user->update($userData);
@@ -155,16 +151,11 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         try {
-            // Simpan path foto untuk dihapus nanti
-            $photoPath = $user->profile_photo_path;
-
-            // Hapus user dulu
-            $user->delete();
-
-            // Jika berhasil hapus user, baru hapus foto
-            if ($photoPath) {
-                Storage::disk('public')->delete($photoPath);
+            if ($user->profile_photo_path && file_exists(public_path($user->profile_photo_path))) {
+                unlink(public_path($user->profile_photo_path));
             }
+
+            $user->delete();
 
             return redirect()
                 ->route('user.index')

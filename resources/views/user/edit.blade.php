@@ -115,9 +115,8 @@
                                 <div class="form-group">
                                     <label>Foto Profil</label>
                                     <div class="mb-3 text-center">
-                                        <img id="preview"
-                                            src="{{ $user->profile_photo_path ? Storage::url($user->profile_photo_path) : asset('img/default-user.png') }}"
-                                            alt="Preview" class="img-circle" style="width: 100px; height: 100px;">
+                                        <img id="preview" src="{{ asset($user->profile_photo_path) }}" alt="Preview"
+                                            class="img-circle" style="width: 100px; height: 100px;">
                                     </div>
                                     <div class="custom-file">
                                         <input type="file"

@@ -9,7 +9,8 @@
         @auth
             <div class="pb-3 mt-3 mb-3 user-panel d-flex">
                 <div class="image">
-                    <img src="{{ Auth::user()->profile_photo_url }}" class="img-circle elevation-2" alt="User Image">
+                    <img src="{{ Auth::user()->profile_photo_path ? asset(Auth::user()->profile_photo_path) : asset('img/default-user.png') }}"
+                        class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">{{ Auth::user()->name }}</a>
@@ -30,7 +31,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href="/" class="nav-link">
+                    <a href="/dashboard" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
                     </a>

@@ -68,7 +68,7 @@
                                         <td class="text-center">{{ $index + 1 }}</td>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <img src="{{ $user->profile_photo_url }}" alt="Profile"
+                                                <img src="{{ asset($user->profile_photo_path) }}" alt="Profile"
                                                     class="mr-2 img-circle" style="width: 32px; height: 32px;">
                                                 <strong>{{ $user->name }}</strong>
                                             </div>
